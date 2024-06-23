@@ -1,0 +1,7 @@
+2024-06-23 02:17:47,022 - INFO: Training starts on dataset hawkes
+2024-06-23 02:17:47,022 - INFO: ----------Trainable parameter count: 221391 of models logs/name-SAHP_M_use_-False_proc-8_hidd-32_0623021746/models
+2024-06-23 02:17:59,547 - INFO: Epoch 0: train loss - 2.4711060523986816, learning rate - 0.0001. Cost time: 0.209m
+2024-06-23 02:18:01,871 - INFO: ---Test Loss: 2.4711060523986816, metrics: {'type_acc': 0.06210362155605614, 'time_rmse': 0.4062054349811748}. Cost time: 0.013m
+2024-06-23 02:18:05,125 - INFO: Epoch 1: train loss - 2.3706140518188477, learning rate - 0.0001. Cost time: 0.054m
+2024-06-23 02:18:06,432 - INFO: ---Test Loss: 2.3706140518188477, metrics: {'type_acc': 0.0680298041933807, 'time_rmse': 0.30933973132199405}. Cost time: 0.007m
+2024-06-23 02:18:06,432 - INFO: Training Finished!

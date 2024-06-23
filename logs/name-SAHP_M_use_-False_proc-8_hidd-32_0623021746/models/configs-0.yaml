@@ -1,0 +1,123 @@
+base_dir: logs
+data:
+  action_flag: 2
+  batch_size: 256
+  buffer_size: 1000000
+  cache_dir: None
+  data_filename: data/8_normal_env/{}.pkl
+  data_name: hawkes
+  metrics:
+  - type_acc
+  - time_rmse
+  next_state_flag: 3
+  process_dim: 8
+  state_flag: 1
+  use_cache: false
+env:
+  adjacency: !!python/object/apply:numpy.core.multiarray._reconstruct
+    args:
+    - &id001 !!python/name:numpy.ndarray ''
+    - !!python/tuple
+      - 0
+    - !!binary |
+      Yg==
+    state: !!python/tuple
+    - 1
+    - !!python/tuple
+      - 8
+      - 8
+    - &id002 !!python/object/apply:numpy.dtype
+      args:
+      - f8
+      - false
+      - true
+      state: !!python/tuple
+      - 3
+      - <
+      - null
+      - null
+      - null
+      - -1
+      - -1
+      - 0
+    - false
+    - !!binary |
+      mpmZmZmZyT+amZmZmZm5PzMzMzMzM9M/mpmZmZmZuT8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+      AAAAAAAAAJqZmZmZmbk/mpmZmZmZyT+amZmZmZnJPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+      AAAAAAAAAAAAAAAAAAAzMzMzMzPTP5qZmZmZmbm/mpmZmZmZyT+amZmZmZm5PwAAAAAAAAAAAAAA
+      AAAAAAAAAAAAAAAAAAAAAAAAAAAAmpmZmZmZuT+amZmZmZm5vzMzMzMzM9M/mpmZmZmZyT8AAAAA
+      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJqZmZmZmcm/mpmZmZmZuT8zMzMzMzPTv5qZmZmZ
+      mbk/mpmZmZmZuT+amZmZmZm5P5qZmZmZmck/AAAAAAAAAACamZmZmZm5vzMzMzMzM9O/mpmZmZmZ
+      ub8zMzMzMzPTv5qZmZmZmck/mpmZmZmZyT8zMzMzMzPTPwAAAAAAAAAAmpmZmZmZ2b+amZmZmZnJ
+      PzMzMzMzM9M/mpmZmZmZuT+amZmZmZm5P5qZmZmZmck/mpmZmZmZuT+amZmZmZm5P5qZmZmZmck/
+      mpmZmZmZub+amZmZmZnJvzMzMzMzM9O/mpmZmZmZuT+amZmZmZnJP5qZmZmZmbk/mpmZmZmZyT8=
+  baseline: !!python/object/apply:numpy.core.multiarray._reconstruct
+    args:
+    - *id001
+    - !!python/tuple
+      - 0
+    - !!binary |
+      Yg==
+    state: !!python/tuple
+    - 1
+    - !!python/tuple
+      - 8
+    - *id002
+    - false
+    - !!binary |
+      ZmZmZmZm5j+amZmZmZnJP5qZmZmZmdk/mpmZmZmZuT+amZmZmZm5P5qZmZmZmbk/mpmZmZmZuT+a
+      mZmZmZm5Pw==
+  candidate_dim: 4
+  dt_intervene: 1
+  emergent_event: 0
+  horizon: 100
+  num_max_event: 70
+  omega: 1.0
+  target_intensity:
+  - 0.4
+  - 0.3
+  - 0.2
+  - 0.1
+  use_emergent: false
+model:
+  action_flag: 2
+  alpha: 0.2
+  candidate_dim: 4
+  gamma: 0.1
+  hidden_dim: 32
+  max_time_pred: 100
+  n_loss_integral_sample: 10
+  n_pred_integral_sample: 10
+  name: SAHP_MODEL
+  next_state_flag: 3
+  pi_net:
+  - 128
+  - 64
+  polyak: 0.99
+  pred_method: hybrid
+  process_dim: 8
+  q_net:
+  - 128
+  - 64
+  - 1
+  state_flag: 1
+  use_filter: false
+  v_net:
+  - 128
+  - 64
+  - 1
+  value_parameter_sharing: true
+rl_train:
+  epochs: 200
+  model_train_steps_per_epoch: 10
+  steps_per_epoch: 1000
+tensorboard:
+  write_summary: true
+train:
+  dropout_rate: 0.0
+  epoch: 0
+  lr: 0.0001
+  lr_scheduler: PlateauLRScheduler
+  max_epoch: 1
+  model_path: logs/name-SAHP_M_use_-False_proc-8_hidd-32_0623021746/models/models-0
+  patience: 1000
