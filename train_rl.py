@@ -108,10 +108,13 @@ def main(argv):
                 summary = tf.Summary(value=[
                     tf.Summary.Value(tag='TestResult', simple_value=ep_test_ret)
                 ])
-                model_runner.tensorboard_writer.add_summary(summary, t)
+                model_runner.tensorboard_writer.add_summary(summary, t + 1)
+                model_runner.tensorboard_writer.flush()
 
                 rl_logger.info('Epoch ' + str(t // rl_config['steps_per_epoch']) + ' is finished')
                 rl_logger.info('The test result is ' + str(ep_test_ret))
+                rl_logger.info('Average reward is ' + str(ep_ret / ep_len))
+                rl_logger.info('Reward is ' + str(reward))
 
 
 if __name__ == '__main__':
