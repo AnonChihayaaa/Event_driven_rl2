@@ -91,8 +91,8 @@ def main(argv):
                 model_runner.tensorboard_writer.add_summary(summary, t + 1)
                 model_runner.tensorboard_writer.flush()
 
-            # 每隔十步保存一次模型
-            if (t + 1) % 10 == 0:
+            # 每隔1e4步保存一次模型
+            if (t + 1) % 10000 == 0:
                 preds, labels, metrics = model_runner.evaluate_model(sess, test_dp)
                 print(metrics)
                 model_runner.save_model_with_config(sess)
